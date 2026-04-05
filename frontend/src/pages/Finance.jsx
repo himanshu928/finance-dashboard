@@ -16,7 +16,7 @@ function Finance() {
 
   const fetchData = async () => {
     try {
-      const res = await getFinanceRecords(token, type, page);
+      const res = await getFinanceRecords(token, type, page, search);
       console.log(res.data);
       setRecords(res.data.records);
       const records = res.data.records;

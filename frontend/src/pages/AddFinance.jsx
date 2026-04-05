@@ -49,13 +49,15 @@ function AddFinance() {
           onChange={handleChange}
         />
 
-        <input
-          type="text"
+        <select
           name="type"
-          placeholder="Type (Income or Expense)"
           className="border p-2"
           onChange={handleChange}
-        />
+        >
+          <option value="">Select Type</option>
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
 
         <input
           type="date"
@@ -67,7 +69,7 @@ function AddFinance() {
 
         <input
           type="text"
-          name="description"
+          name="category"
           placeholder="Category (e.g. Salary, Food, etc.)"
           className="border p-2"
           onChange={handleChange}
