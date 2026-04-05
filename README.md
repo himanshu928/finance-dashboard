@@ -1,306 +1,273 @@
-# Finance Dashboard API 🚀
-Node.js | Express | PostgreSQL | JWT | Role-Based Access | REST API
+# 💰 Finance Dashboard Full Stack Application
 
-## 📌 Project Overview
-
-Finance Dashboard API is a backend application built using **Node.js, Express.js, and PostgreSQL** with **JWT Authentication and Role-Based Authorization**.
-
-This project allows users to manage financial records securely with different roles like **Admin, Analyst, and Viewer**.
-
-The system supports:
-
-* User authentication
-* Role-based access control
-* Finance record management
-* Filtering and pagination
-* Secure API structure
-
-This project follows **industry-level backend architecture** and is suitable for **internships, assignments, and real-world applications**.
+A full stack Finance Dashboard application built using **React, Node.js, Express, PostgreSQL, and JWT Authentication**.
+This project allows users to manage their financial records with secure authentication, role-based access, filtering, pagination, and a professional dashboard UI.
 
 ---
 
 # 🚀 Features
 
-* JWT Authentication
-* Role-Based Authorization
-* Admin, Analyst, Viewer roles
-* Create Finance Records
-* Get Finance Records
-* Update Finance Records
-* Delete Finance Records
-* Filtering (type, category, date)
-* Pagination
-* PostgreSQL Database
-* Secure API Routes
-* MVC Folder Structure
+* 🔐 User Authentication (Register & Login)
+* 🪪 JWT Token-based Authorization
+* 👥 Role-based Access (Admin & Viewer)
+* 💰 Add Finance Records
+* 📋 View Finance Records
+* ✏️ Update Finance Records
+* ❌ Delete Finance Records
+* 🔍 Filter by Type (Income / Expense)
+* 📄 Pagination
+* 📊 Dashboard Summary (Income, Expense, Balance)
+* 📦 PostgreSQL Database
+* 🎨 Responsive UI with Tailwind CSS
+* 🧪 Postman Collection Included
 
 ---
 
 # 🛠️ Tech Stack
+
+## Frontend
+
+* React.js
+* Tailwind CSS
+* Axios
+* React Router
+
+## Backend
 
 * Node.js
 * Express.js
 * PostgreSQL
 * JWT
 * bcrypt
+* CORS
 * dotenv
-* nodemon
+
+## Tools
+
 * Postman
+* Git & GitHub
+* VS Code
 
 ---
 
-# 📂 Project Structure
+# 📁 Project Structure
 
-```
-finance-dashboard
+finance-dashboard-fullstack
+
 │
-├── src
-│   ├── config
-│   │     db.js
+
+├── backend
+
+│ ├── src
+
+│ │ ├── controllers
+
+│ │ ├── routes
+
+│ │ ├── middleware
+
+│ │ ├── db
+
+│ │ └── app.js
+
+│ │
+
+│ ├── database.sql
+
+│ ├── package.json
+
+│ └── .env.example
+
 │
-│   ├── controllers
-│   │     authController.js
-│   │     financeController.js
+
+├── frontend
+
+│ ├── src
+
+│ ├── public
+
+│ └── package.json
+
 │
-│   ├── middleware
-│   │     authMiddleware.js
-│   │     roleMiddleware.js
-│
-│   ├── models
-│   │     userModel.js
-│   │     financeModel.js
-│
-│   ├── routes
-│   │     authRoutes.js
-│   │     financeRoutes.js
-│
-│   ├── app.js
-│   └── server.js
-│
-├── .env
-├── package.json
+
+├── My Collection.postman_collection.json
+
 ├── README.md
-└── database.sql
-```
+
+└── .gitignore
 
 ---
 
-# ⚙️ Installation
+# ⚙️ Installation & Setup
 
-## 1. Clone the repository
+## Step 1: Clone Repository
 
-```
-git clone https://github.com/your-username/finance-dashboard.git
-```
-
-## 2. Go to project folder
-
-```
+git clone git@github.com:himanshu928/finance-dashboard.git
 cd finance-dashboard
-```
 
-## 3. Install dependencies
+---
 
-```
+# 🔧 Backend Setup
+
+cd backend
+
 npm install
-```
 
-## 4. Create .env file
+Create `.env` file:
 
-```
 PORT=5000
 
-DB_USER=postgres
-DB_HOST=localhost
-DB_NAME=finance_dashboard
-DB_PASSWORD=yourpassword
-DB_PORT=5432
+DATABASE_URL=your_postgresql_url
 
 JWT_SECRET=your_secret_key
-```
 
-## 5. Run PostgreSQL
+Run server:
 
-Make sure PostgreSQL is running.
+npm start
+
+Backend runs on:
+
+http://localhost:5000
+
+---
+
+# 🎨 Frontend Setup
+
+Open new terminal
+
+cd frontend
+
+npm install
+
+npm run dev
+
+Frontend runs on:
+
+http://localhost:5173
 
 ---
 
 # 🗄️ Database Setup
 
-Run this SQL in PostgreSQL:
+Open PostgreSQL
 
-```
-CREATE DATABASE finance_dashboard;
-```
+Run:
 
-Connect database:
+database.sql
 
-```
-\c finance_dashboard
-```
+This will create:
 
-Create Users Table:
+users table
 
-```
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100),
-    email VARCHAR(100) UNIQUE,
-    password TEXT,
-    role VARCHAR(20),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-
-Create Finance Records Table:
-
-```
-CREATE TABLE finance_records (
-    id SERIAL PRIMARY KEY,
-    amount NUMERIC NOT NULL,
-    type VARCHAR(20) NOT NULL,
-    category VARCHAR(100),
-    date DATE,
-    notes TEXT,
-    user_id INT REFERENCES users(id),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
+finance_records table
 
 ---
 
-# ▶️ Run Server
+# 🔐 API Endpoints
 
-```
-npm run dev
-```
-
-Server will start:
-
-```
-Server running on port 5000
-Database connected
-```
-
----
-
-# 🔐 Authentication APIs
-
-## Register
+## Auth
 
 POST /api/auth/register
 
-```
-{
-  "name": "Himanshu",
-  "email": "himanshu@gmail.com",
-  "password": "123456",
-  "role": "admin"
-}
-```
-
----
-
-## Login
-
 POST /api/auth/login
 
-```
-{
-  "email": "himanshu@gmail.com",
-  "password": "123456"
-}
-```
-
-Response:
-
-```
-token
-```
-
 ---
 
-# 💰 Finance APIs
-
-## Create Finance
-
-POST /api/finance
-
-Admin only
-
----
-
-## Get Finance
+## Finance
 
 GET /api/finance
 
-Admin and Analyst
-
----
-
-## Update Finance
+POST /api/finance
 
 PUT /api/finance/:id
 
-Admin only
-
----
-
-## Delete Finance
-
 DELETE /api/finance/:id
 
-Admin only
+---
+
+# 🧪 Postman Collection
+
+Postman collection is included in project:
+
+My Collection.postman_collection.json
+
+Import into Postman and test APIs.
 
 ---
 
-# 🔍 Filtering
-
-```
-GET /api/finance?type=income
-GET /api/finance?category=salary
-GET /api/finance?date=2026-04-02
-```
-
----
-
-# 📊 Pagination
-
-```
-GET /api/finance?page=1&limit=5
-GET /api/finance?page=2&limit=5
-```
-
----
-
-# 👥 Roles
+# 👤 User Roles
 
 ## Admin
 
-* Create Finance
-* Get Finance
-* Update Finance
-* Delete Finance
+Can add finance
 
-## Analyst
+Can edit finance
 
-* Get Finance only
+Can delete finance
+
+Can view finance
 
 ## Viewer
 
-* No access
+Can only view finance
+
+Cannot add or delete
 
 ---
 
-# 🧪 Testing
+# 📊 Dashboard
 
-Use Postman
+Shows:
 
-Add Header:
+Total Income
 
-```
-Authorization: Bearer TOKEN
-```
+Total Expense
+
+Balance
+
+Finance Table
+
+Filter
+
+Pagination
+
+CRUD operations
+
+---
+
+# 🔒 Environment Variables
+
+Create `.env` in backend:
+
+PORT=5000
+
+DATABASE_URL=postgresql://username:password@localhost:5432/finance_db
+
+JWT_SECRET=finance_secret
+
+---
+
+# 📸 Screenshots
+
+Login Page
+
+Dashboard
+
+Finance Table
+
+Add Finance
+
+Edit Finance
+
+---
+
+# 🚀 Deployment (Optional)
+
+Frontend → Vercel
+
+Backend → Render / Railway
+
+Database → Neon PostgreSQL
 
 ---
 
@@ -308,18 +275,24 @@ Authorization: Bearer TOKEN
 
 Himanshu Sahu
 
-Full Stack Web Developer
+Full Stack Developer (MERN)
+
+GitHub: https://github.com/himanshu928
 
 ---
 
-# ⭐ Project Goal
+# ⭐ Project Status
 
-This project demonstrates:
+Completed and ready for:
 
-* Backend development skills
-* Database management
-* API development
-* Authentication and authorization
-* Real-world project structure
+Internship submission
 
-This project is built for **learning, internship, and professional portfolio**.
+GitHub portfolio
+
+Job applications
+
+Full stack project showcase
+
+---
+
+# 🙌 Thank You
