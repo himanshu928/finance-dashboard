@@ -61,6 +61,7 @@ function AddFinance() {
           type="date"
           name="date"
           className="border p-2"
+        
           onChange={handleChange}
         />
 

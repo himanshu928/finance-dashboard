@@ -38,6 +38,7 @@ export const createFinance = async (req, res) => {
     });
 
   } catch (error) {
+    console.log("Error creating finance record", error);
     res.status(500).json({
       message: error.message
     });
