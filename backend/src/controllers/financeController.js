@@ -60,7 +60,9 @@ export const getFinance = async (req, res) => {
       category,
       date,
       page,
-      limit
+      limit,
+      req.user.id,
+      req.user.role
     );
 
     res.json({

@@ -12,11 +12,10 @@ import { authorizeRoles } from "../middleware/roleMiddleware.js";
 const router = express.Router();
 
 
-// CREATE (Admin only)
+// CREATE (All authenticated users can add their own records)
 router.post(
   "/finance",
   verifyToken,
-  authorizeRoles("admin"),
   createFinance
 );
 
@@ -29,21 +28,17 @@ router.get(
   getFinance
 );
 
-// PUT
-
+// PUT (Users can update their own records, admins can update any)
 router.put(
   "/finance/:id",
   verifyToken,
-  authorizeRoles("admin"),
   updateFinance
 );
 
-// DELETE
-
+// DELETE (Users can delete their own records, admins can delete any)
 router.delete(
   "/finance/:id",
   verifyToken,
-  authorizeRoles("admin"),
   deleteFinance
 );
 export default router;

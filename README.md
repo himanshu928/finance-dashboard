@@ -189,7 +189,7 @@ DELETE /api/finance/:id
 
 Postman collection is included in project:
 
-My Collection.postman_collection.json
+MyCollection.postman_collection.json
 
 Import into Postman and test APIs.
 
@@ -251,6 +251,7 @@ JWT_SECRET=finance_secret
 
 Login Page
 
+
 Dashboard
 
 Finance Table
@@ -259,15 +260,6 @@ Add Finance
 
 Edit Finance
 
----
-
-# 🚀 Deployment (Optional)
-
-Frontend → Vercel
-
-Backend → Render / Railway
-
-Database → Neon PostgreSQL
 
 ---
 
@@ -277,7 +269,7 @@ Himanshu Sahu
 
 Full Stack Developer (MERN)
 
-GitHub: https://github.com/himanshu928
+GitHub: https://github.com/himanshu928/finance-dashboard
 
 ---
 

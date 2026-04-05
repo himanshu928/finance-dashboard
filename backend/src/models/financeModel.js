@@ -24,11 +24,19 @@ export const getFinanceRecords = async (
   category,
   date,
   page,
-  limit
+  limit,
+  userId,
+  userRole
 ) => {
 
   let query = `SELECT * FROM finance_records WHERE 1=1`;
   let values = [];
+
+  // Role-based filtering: viewers see only their records, others see all
+  if (userRole === 'viewer') {
+    values.push(userId);
+    query += ` AND user_id = $${values.length}`;
+  }
 
   if (type) {
     values.push(type);
