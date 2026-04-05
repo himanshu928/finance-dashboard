@@ -57,6 +57,7 @@ function Login() {
                     type="password"
                     placeholder="Password"
                     className="w-full border p-2 mb-4"
+                    suggested="current-password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
