@@ -16,6 +16,6 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api", testRoutes);
-app.use("/api", financeRoutes);
+app.use("/api/finance", financeRoutes);
 
 export default app;

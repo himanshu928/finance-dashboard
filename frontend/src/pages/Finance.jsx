@@ -23,6 +23,8 @@ function Finance() {
     const fetchData = async () => {
         try {
             setLoading(true);
+            console.log("Token:", token);
+            console.log("Calling API....");
             const res = await getFinanceRecords(token, type, page, search);
             console.log(res.data);
             setRecords(res.data.records);
@@ -56,7 +58,10 @@ function Finance() {
             navigate("/login");
             return;
         }
-        fetchData();
+        setTimeout(() => {
+            fetchData();
+        }, 2000);
+        
     }, [token, type, page, search, navigate]);
 
     const handleDelete = async (id) => {
@@ -75,6 +80,8 @@ function Finance() {
     const handleEdit = (record) => {
         navigate(`/edit-finance/${record.id}`);
     };
+
+
 
     const handleSearch = (e) => {
         e.preventDefault();
