@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "https://finance-dashboard-hrlm.onrender.com/api"
+    baseURL: "https://finance-dashboard-hrlm.onrender.com"
 });
 
 // attach token automatically
