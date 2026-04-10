@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { addFinanceRecord } from "../api/financeApi";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
+
 
 function AddFinance() {
     const { token } = useContext(AuthContext);
@@ -46,8 +46,7 @@ function AddFinance() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-
+        <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100">
             <div className="container mx-auto px-6 py-8">
                 <div className="max-w-2xl mx-auto">
                     {/* Header */}

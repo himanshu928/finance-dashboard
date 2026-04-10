@@ -26,7 +26,7 @@ function Navbar() {
     if (!token) return null;
 
     return (
-        <nav className="bg-gradient-to-r from-blue-600 to-indigo-700 shadow-lg">
+        <nav className="bg-linear-to-r from-blue-600 to-indigo-700 shadow-lg">
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center h-16">
                         <h1 className="text-white font-bold text-xl">FinanceTracker</h1>
@@ -40,7 +40,7 @@ function Navbar() {
                                 className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition duration-200 font-medium ${
                                     isActive(item.path)
                                         ? 'bg-red-500 bg-opacity-20 text-white shadow-lg'
-                                        : 'text-blue-100 hover:bg-white hover:bg-opacity-10 hover:text-white'
+                                        : 'text-blue-100 hover:bg-yellow-500 hover:bg-opacity-10 hover:text-black'
                                 }`}
                             >
                                 <span>{item.icon}</span>
