@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 const API = axios.create({
-    baseURL: "http://localhost:5000/api",
+    baseURL: "https://finance-dashboard-hrlm.onrender.com/api",
 });
 
 export const getFinanceRecords = (token, type, page, search) => {
