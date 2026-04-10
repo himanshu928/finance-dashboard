@@ -9,6 +9,9 @@ app.listen(PORT, () => {
 });
 
 app.use(cors({
-  origin: "*",
+  origin: [
+    'http://localhost:3000',
+    'https://finance-dashboard-frontend-p2mb.onrender.com'
+    ],
   credentials: true
 }));
